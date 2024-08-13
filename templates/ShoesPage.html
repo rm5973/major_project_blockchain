@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blockchain-Product-Verifier Registration Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Shoespage.css')}}">
+</head>
+<body class="bgimg">
+    <h3 style="color:white;">SHOES REGISTRATION FORM</h3>
+    <table align="center" cellpadding="10">
+        <form method="POST" action="http://127.0.0.1:5000/addproduct" id="productForm" enctype="multipart/form-data">
+            <tr>
+                <td>BRAND</td>
+                <td>
+                    <input type="text" name="brand" maxlength="30" />
+                    (max 30 characters a-z and A-Z)
+                </td>
+            </tr>
+            <tr>
+                <td>NAME</td>
+                <td>
+                    <input type="text" name="name" maxlength="30" />
+                    (max 30 characters a-z and A-Z)
+                </td>
+            </tr>
+            <tr>
+                <td>BATCH</td>
+                <td>
+                    <input type="text" name="batch" maxlength="30" />
+                    (max 30 numbers and characters)
+                </td>
+            </tr>
+            <tr>
+                <td>ID</td>
+                <td>
+                    <input type="text" name="id" maxlength="30" />
+                    (max 30 numbers and characters)
+                </td>
+            </tr>
+            <tr>
+                <td>MANUFACTURING DATE</td>
+                <td>
+                    <input type="date" name="manfdate" />
+                </td>
+            </tr>
+            <tr hidden="">
+                <td>EXPIRY DATE</td>
+                <td>
+                    <input type="date" name="exprydate" value="" />
+                </td>
+            </tr>
+            <tr>
+                <td>PRICE</td>
+                <td>
+                    <input type="text" name="price" maxlength="10" />
+                    (Must be in $ or ₹)
+                </td>
+            </tr>
+            <tr>
+                <td>SIZE</td>
+                <td>
+                    <input type="number" name="size" />
+                </td>
+            </tr>
+            <tr>
+                <td>TYPE</td>
+                <td>
+                    <input type="text" name="type" maxlength="30" />
+                </td>
+            </tr>
+            <tr>
+                <td>IMAGE 1</td>
+                <td>
+                    <input type="file" name="image1" accept="image/*" required>
+                </td>
+            </tr>
+            <tr>
+                <td>IMAGE 2</td>
+                <td>
+                    <input type="file" name="image2" accept="image/*" required>
+                </td>
+            </tr>
+            <tr>
+                <td>IMAGE 3</td>
+                <td>
+                    <input type="file" name="image3" accept="image/*" required>
+                </td>
+            </tr>
+            <tr>
+                <td>IMAGE 4</td>
+                <td>
+                    <input type="file" name="image4" accept="image/*" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" name="submit" id="submitBtn">
+                </td>
+            </tr>
+        </form>
+    </table>
+    <script>
+        document.getElementById('productForm').addEventListener('submit', function(e) {
+            var image1 = document.querySelector('input[name="image1"]').files.length;
+            var image2 = document.querySelector('input[name="image2"]').files.length;
+            var image3 = document.querySelector('input[name="image3"]').files.length;
+            var image4 = document.querySelector('input[name="image4"]').files.length;
+            if (image1 === 0 || image2 === 0 || image3 === 0 || image4 === 0) {
+                e.preventDefault();
+                alert('Please upload all four images.');
+            }
+        });
+    </script>
+</body>
+</html>

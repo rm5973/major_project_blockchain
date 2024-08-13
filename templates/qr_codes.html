@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Data with QR Codes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .qr-card {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .qr-image {
+            margin: auto;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="my-4 text-center">Product QR Codes</h2>
+        <div class="row">
+            {% for qr_code_url in file_paths %}
+                <div class="col-md-4">
+                    <div class="qr-card">
+                        <img src="{{ qr_code_url }}" class="qr-image" alt="QR Code">
+                        
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+
+</body>
+</html>

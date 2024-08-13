@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ADMIN - Product-Verifier</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('https://www.ibm.com/blogs/blockchain/wp-content/uploads/2019/12/Retina_Display-758591537.jpg');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+.jumbo {
+  font-size: 6vw;
+}
+.pumbo {
+  font-size: 1.5vw;
+}
+a:hover {
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Blockchain-Product-Verifier</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://127.0.0.1:5000/verify_blockchain">Verify Blockchain</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" id="nikeLink">Nike</a>
+      </li>
+      <!-- Add similar list items for other companies -->
+    </ul>
+  </div>
+</nav>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    Blockchain-Product-Verifier
+  </div>
+
+  <div class="w3-display-middle" align="center">
+    <h1 align="center">Welcome to Blockchain Product Verifier</h1>
+  
+    <!-- Add an empty div for displaying the JSON content -->
+    <div id="jsonContent" style="white-space: pre-wrap;"></div>
+
+    {% for message in get_flashed_messages() %}
+      {% if message == "All Nodes of Blockchain are valid" %}
+        <div class="alert alert-success">
+      {% else %}
+        <div class="alert alert-danger">
+      {% endif %}
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ message }}
+      </div>
+    {% endfor %}
+
+  </div>
+  
+  <div class="w3-display-bottomleft w3-padding-large">
+    Powered by Blockchain
+  </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+  document.getElementById('nikeLink').addEventListener('click', function(event) {
+    // Prevent default link behavior
+    event.preventDefault();
+    
+    // Fetch JSON data from the specified URL
+    fetch('/nike_data')  // This should match the route defined in your Flask app
+      .then(function(response) {
+        // Check if response is OK
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(function(data) {
+        // Display the JSON data with proper formatting
+        document.getElementById('jsonContent').textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(function(error) {
+        // Display an error message if fetching fails
+        console.error('Error fetching JSON:', error);
+        document.getElementById('jsonContent').textContent = 'Error loading the JSON data.';
+      });
+  });
+</script>
+
+
+</body>
+</html>

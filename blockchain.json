@@ -1,0 +1,59 @@
+[
+    {
+        "index": 0,
+        "timestamp": "2024-04-11T13:23:43.082937",
+        "data": {
+            "info": "Genesis Block"
+        },
+        "previous_hash": "0",
+        "hash": "02254bbe900a0034c85f2627f717b6b4c0fba6ed72d67a991889a6fb88aa9acd"
+    },
+    {
+        "index": 1,
+        "timestamp": "2024-04-11T13:23:43.082937",
+        "data": {
+            "Manufacturer": "nike",
+            "ProductName": "jordan",
+            "ProductBatch": "1",
+            "ProductId": "000001",
+            "ProductManufacturedDate": "2024-04-11",
+            "ProductPrice": "98000",
+            "ProductSize": "8",
+            "ProductType": "shoes"
+        },
+        "previous_hash": "02254bbe900a0034c85f2627f717b6b4c0fba6ed72d67a991889a6fb88aa9acd",
+        "hash": "2776acc62d076691caa14590345a44390367d3b59ff1f099a8c51005cc2f7323"
+    },
+    {
+        "index": 2,
+        "timestamp": "2024-04-11T13:24:26.506804",
+        "data": {
+            "Manufacturer": "nike",
+            "ProductName": "air",
+            "ProductBatch": "1",
+            "ProductId": "000002",
+            "ProductManufacturedDate": "2024-04-11",
+            "ProductPrice": "98000",
+            "ProductSize": "8",
+            "ProductType": "shoes"
+        },
+        "previous_hash": "2776acc62d076691caa14590345a44390367d3b59ff1f099a8c51005cc2f7323",
+        "hash": "ab8dc4231170555684773bea97447db9ef3e84cabf0f20d3be893e451b146ef0"
+    },
+    {
+        "index": 3,
+        "timestamp": "2024-05-17T12:10:49.236252",
+        "data": {
+            "Manufacturer": "nike",
+            "ProductName": "air",
+            "ProductBatch": "3",
+            "ProductId": "000004",
+            "ProductManufacturedDate": "2024-05-17",
+            "ProductPrice": "23000",
+            "ProductSize": "8",
+            "ProductType": "shoes"
+        },
+        "previous_hash": "ab8dc4231170555684773bea97447db9ef3e84cabf0f20d3be893e451b146ef0",
+        "hash": "b098a6ece023fe2990440f9c81c3dba334a29d8f334c4819e412540085345424"
+    }
+]
